@@ -45,12 +45,19 @@ function moveShooter(e) {
 document.addEventListener('keyup', moveShooter)
 
 function remove() {
-
+    for (let i=0; i < alienInvaders.length; i++) {
+        squares[alienInvaders[i]].classList.remove('invader')
+    }
 }
 
 function moveInvaders() {
-   const leftEdge = alienInvaders[0] % width === 0;
-   const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width -1;
+    remove()
+    for (let i=0; i < alienInvaders.length; i++) {
+        alienInvaders[i] += width +1;
+    }
 
-   
+
+    draw()
 }
+
+setInterval(moveInvaders, 500);
