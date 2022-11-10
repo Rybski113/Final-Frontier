@@ -1,5 +1,5 @@
 const grid = document.getElementById('grid');
-let currentShooterIndex = 205;
+let currentShooterIndex = 202;
 
 
 for (let i = 0; i < 225; i++) {
