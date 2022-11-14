@@ -100,25 +100,27 @@ function moveInvaders() {
         levelDisplay.innerHTML = level
         clearInterval(invadersId);
     }
+
+    
 }
 
  invadersId = setInterval(moveInvaders, 400);
+
+ 
 
 function shoot(e) {
     let laserId;
     let currentLaserPosition = currentShooterIndex;
      function moveLaser() {
-        squares[currentLaserPosition].classList.remove('laser')
-        currentLaserPosition -= width;
-        squares[currentLaserPosition].classList.add('laser')
+            squares[currentLaserPosition].classList.remove('laser')
+            currentLaserPosition -= width;
+            squares[currentLaserPosition].classList.add('laser')
 
         if (squares[currentLaserPosition].classList.contains('invader')) {
             squares[currentLaserPosition].classList.remove('laser')
             squares[currentLaserPosition].classList.remove('invader')
             
-            if (squares[currentLaserPosition] < squares.length) {
-                squares[currentLaserPosition].classList.remove('laser')
-             }
+            
             
             clearInterval(laserId)
 
