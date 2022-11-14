@@ -80,9 +80,14 @@ function moveInvaders() {
       }
 
     draw()
+
+    if( squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
+        result.innerHTML = 'Game over'
+        remove()
+    }
 }
 
-setInterval(moveInvaders, 500);
+setInterval(moveInvaders, 200);
 
 function shoot(e) {
     let laserId;
