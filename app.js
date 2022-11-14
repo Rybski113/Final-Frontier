@@ -100,13 +100,14 @@ function moveInvaders() {
         levelDisplay.innerHTML = level
         clearInterval(invadersId);
     }
-
 }
 
 
+invadersId = setInterval(moveInvaders, 300)
+
 
  
-
+anotherlevel()
 
 function shoot(e) {
     let laserId;
