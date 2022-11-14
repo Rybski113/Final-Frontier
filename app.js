@@ -101,12 +101,12 @@ function moveInvaders() {
         clearInterval(invadersId);
     }
 
-    
 }
 
- invadersId = setInterval(moveInvaders, 400);
+
 
  
+
 
 function shoot(e) {
     let laserId;
@@ -119,22 +119,14 @@ function shoot(e) {
         if (squares[currentLaserPosition].classList.contains('invader')) {
             squares[currentLaserPosition].classList.remove('laser')
             squares[currentLaserPosition].classList.remove('invader')
-            
-            
-            
             clearInterval(laserId)
-
             const alienRemoved = alienInvaders.indexOf(currentLaserPosition)
             aliensRemoved.push(alienRemoved)
             results++
             resultDisplay.innerHTML = results
-            console.log(aliensRemoved)
-
          }
          
      }
-
-     
 
      switch(e.key) {
          case ' ':
