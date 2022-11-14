@@ -1,5 +1,8 @@
 const grid = document.getElementById('grid');
-let result = document.getElementById('result');
+const resultDisplay = document.getElementById('result');
+const levelDisplay = document.getElementById('level')
+let level = 0;
+let results = 0;
 let currentShooterIndex = 202;
 let width = 15;
 let goingRight = true;
@@ -82,12 +85,24 @@ function moveInvaders() {
     draw()
 
     if( squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
-        result.innerHTML = 'Game over'
-        remove()
+        result.innerHTML = 'Game Over'
+        clearInterval(invadersId)
+    }
+    for ( let i = 0; i < alienInvaders.length; i++) {
+        if(alienInvaders[i] > (squares.length)) {
+            result.innerHTML = 'Game Over';
+            clearInterval(invadersId);
+        }
+    }
+    if (aliensRemoved.length === alienInvaders.length) {
+        console.log('empty')
+        level++
+        levelDisplay.innerHTML = level
+        clearInterval(invadersId);
     }
 }
 
-setInterval(moveInvaders, 200);
+ invadersId = setInterval(moveInvaders, 400);
 
 function shoot(e) {
     let laserId;
@@ -101,14 +116,20 @@ function shoot(e) {
             squares[currentLaserPosition].classList.remove('laser')
             squares[currentLaserPosition].classList.remove('invader')
             
+            if (squares[currentLaserPosition] < squares.length) {
+                squares[currentLaserPosition].classList.remove('laser')
+             }
             
             clearInterval(laserId)
 
             const alienRemoved = alienInvaders.indexOf(currentLaserPosition)
             aliensRemoved.push(alienRemoved)
-           
+            results++
+            resultDisplay.innerHTML = results
             console.log(aliensRemoved)
+
          }
+         
      }
 
      
