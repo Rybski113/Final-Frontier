@@ -79,3 +79,20 @@ function moveInvaders() {
 }
 
 setInterval(moveInvaders, 500);
+
+function shoot(e) {
+    let laserId;
+    let currentLaserPosition = currentShooterIndex;
+     function moveLaser() {
+        squares[currentLaserPosition].classList.remove('laser')
+        currentLaserPosition -= width;
+        squares[currentLaserPosition].classList.add('laser')
+     }
+
+     switch(e.key) {
+         case ' ':
+            laserId = setInterval(moveLaser, 100)
+     }
+}
+
+document.addEventListener('keydown', shoot)
