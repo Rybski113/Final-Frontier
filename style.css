@@ -28,3 +28,8 @@
 .laser {
     background-color: orange;
 }
+
+.boom {
+    background-color: brown;
+    border-radius: 20px;
+}
