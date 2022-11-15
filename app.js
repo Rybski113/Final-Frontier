@@ -26,9 +26,14 @@ const alienInvaders = [
     30,31,32,33,34,35,36,37,38,39
 ]
 
-const copyOfArray = alienInvaders.slice();
-console.log(alienInvaders);
-console.log(copyOfArray);
+function moreInvaders() {
+    const copyOfArray = alienInvaders.slice();
+        console.log(alienInvaders);
+        console.log(copyOfArray);
+
+}
+moreInvaders()
+
 
 
 
