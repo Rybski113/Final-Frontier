@@ -7,6 +7,7 @@ let currentShooterIndex = 202;
 let width = 15;
 let goingRight = true;
 let invadersId;
+let invadersMove;
 let direction = 1;
 let aliensRemoved = [];
 
@@ -25,6 +26,13 @@ const alienInvaders = [
     30,31,32,33,34,35,36,37,38,39
 ]
 
+const copyOfArray = alienInvaders.slice();
+console.log(alienInvaders);
+console.log(copyOfArray);
+
+
+
+
 function draw() {
     for (let i = 0; i < alienInvaders.length; i++) {
         if(!aliensRemoved.includes(i)) {
@@ -33,6 +41,7 @@ function draw() {
         
     }
 }
+
 
 
 function moveShooter(e) {
@@ -82,8 +91,9 @@ function moveInvaders() {
         alienInvaders[i] += direction
       }
 
-    draw()
-
+  
+     draw()
+     
 
     if( squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
         result.innerHTML = 'Game Over'
@@ -98,7 +108,6 @@ function moveInvaders() {
     if (alienInvaders.length === aliensRemoved.length) {
         level++
         levelDisplay.innerHTML = level;
-
     }
 
     
@@ -107,7 +116,7 @@ function moveInvaders() {
 
 
 
-invaderLaserId = setInterval(moveInvaders, 500)
+invaderId = setInterval(moveInvaders, 500)
 
 
  
@@ -147,4 +156,6 @@ function shoot(e) {
 }
 
 document.addEventListener('keydown', shoot)
+
+
 
