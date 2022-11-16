@@ -7,7 +7,7 @@ let currentShooterIndex = 202;
 let width = 15;
 let goingRight = true;
 let invadersId;
-let drawInvaders;
+let invadersMove;
 let direction = 1;
 let aliensRemoved = [];
 
@@ -26,34 +26,26 @@ const alienInvaders = [
     30,31,32,33,34,35,36,37,38,39
 ]
 
+function moreInvaders() {
+    const copyOfArray = alienInvaders.slice();
+        console.log(alienInvaders);
+        console.log(copyOfArray);
+
+}
+setInterval(moreInvaders, 300)
+
 
 
 
 
 function draw() {
-    const invadersCopy = alienInvaders.slice();
-        
-    function drawMore() {
-       for (let i = 0; i < invadersCopy.length; i++) {
-          squares[invadersCopy[i]].classList.add('invader1')
-        }
-     }
-     
-     
-       setInterval(drawMore, 15000) 
     for (let i = 0; i < alienInvaders.length; i++) {
         if(!aliensRemoved.includes(i)) {
             squares[alienInvaders[i]].classList.add('invader')
           }
         
     }
-
-  
 }
-
-
-
-
 
 
 
@@ -79,7 +71,6 @@ function remove() {
         squares[alienInvaders[i]].classList.remove('invader')
     }
 }
-
 
 function moveInvaders() {
     const leftEdge = alienInvaders[0] % width === 0;
@@ -108,6 +99,7 @@ function moveInvaders() {
   
      draw()
      
+
     if( squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
         result.innerHTML = 'Game Over'
         clearInterval(invadersId)
@@ -132,6 +124,7 @@ function moveInvaders() {
 invaderId = setInterval(moveInvaders, 500)
 
 
+ 
 
 
 function shoot(e) {
