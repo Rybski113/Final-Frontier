@@ -28,13 +28,20 @@ const alienInvaders = [
 
 function moreInvaders() {
     const copyOfArray = alienInvaders.slice();
-        console.log(alienInvaders);
-        console.log(copyOfArray);
+        
+     function drawMore() {
+        for (let i = 0; i < copyOfArray.length; i++) {
+            squares[copyOfArray[i]].classList.add('invader1')
+        }
+     }
+
+     setInterval(drawMore, 15000)
+        
 
 }
+
+
 moreInvaders()
-
-
 
 
 
