@@ -6,6 +6,16 @@ window.addEventListener('load', function() {
     canvas.height = 500;
 
 
+
+    class Inputhandler {
+        constructor(game) {
+            this.game;
+            window.addEventListener('keydown', function(e) {
+                console.log(e.key);
+            })
+        }
+    }
+
     class Player {
         constructor(game) {
             this.game = game;
@@ -28,7 +38,7 @@ window.addEventListener('load', function() {
     }
 
     class Projectile {
-        
+
     }
 
     class Game {
