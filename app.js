@@ -26,26 +26,12 @@ const alienInvaders = [
     30,31,32,33,34,35,36,37,38,39
 ]
 
-function moreInvaders() {
-    const copyOfArray = alienInvaders.slice();
-        console.log(alienInvaders);
-        console.log(copyOfArray);
-
-}
-setInterval(moreInvaders, 300)
 
 
 
 
 
-function draw() {
-    for (let i = 0; i < alienInvaders.length; i++) {
-        if(!aliensRemoved.includes(i)) {
-            squares[alienInvaders[i]].classList.add('invader')
-          }
-        
-    }
-}
+
 
 
 
@@ -66,65 +52,6 @@ function moveShooter(e) {
 }
 document.addEventListener('keyup', moveShooter)
 
-function remove() {
-    for (let i=0; i < alienInvaders.length; i++) {
-        squares[alienInvaders[i]].classList.remove('invader')
-    }
-}
-
-function moveInvaders() {
-    const leftEdge = alienInvaders[0] % width === 0;
-    const rightEdge = alienInvaders[alienInvaders.length - 1] % width === width -1;
-    remove()
-    
-    if (rightEdge && goingRight) {
-        for ( let i = 0; i < alienInvaders.length; i++) {
-            alienInvaders[i] += width +1;
-            direction = -1;
-            goingRight = false;
-        }
-    }
-
-    if (leftEdge && !goingRight) {
-        for ( let i = 0; i < alienInvaders.length; i++) {
-            alienInvaders[i] += width -1;
-            direction = 1;
-            goingRight = true;
-        }
-    }
-    for (let i = 0; i < alienInvaders.length; i++) {
-        alienInvaders[i] += direction
-      }
-
-  
-     draw()
-     
-
-    if( squares[currentShooterIndex].classList.contains('invader', 'shooter')) {
-        result.innerHTML = 'Game Over'
-        clearInterval(invadersId)
-    }
-    for ( let i = 0; i < alienInvaders.length; i++) {
-        if(alienInvaders[i] > (squares.length)) {
-            result.innerHTML = 'Game Over';
-            clearInterval(invadersId);
-        }
-    }
-    if (alienInvaders.length === aliensRemoved.length) {
-        level++
-        levelDisplay.innerHTML = level;
-    }
-
-    
-}
-
-
-
-
-invaderId = setInterval(moveInvaders, 500)
-
-
- 
 
 
 function shoot(e) {
