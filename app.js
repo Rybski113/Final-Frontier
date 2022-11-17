@@ -10,7 +10,7 @@ window.addEventListener('load', function() {
     class Inputhandler {
         constructor(game) {
             this.game;
-            window.addEventListener('keydown', function(e) {
+            window.addEventListener('keydown', e => {
                 console.log(e.key);
             })
         }
@@ -46,6 +46,7 @@ window.addEventListener('load', function() {
             this.width = width;
             this.height = height;
             this.player = new Player(this);
+            this.input = new Inputhandler(this);
         }
         update(){
             this.player.update();
