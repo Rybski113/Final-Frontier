@@ -9,9 +9,13 @@ window.addEventListener('load', function() {
 
     class Inputhandler {
         constructor(game) {
-            this.game;
+            this.game = game;
             window.addEventListener('keydown', e => {
-                console.log(e.key);
+                if (e.key === 'ArrowLeft') {
+                    this.game.keys.push(e.key);
+            
+                }
+                console.log(this.game.keys)
             })
         }
     }
@@ -47,6 +51,7 @@ window.addEventListener('load', function() {
             this.height = height;
             this.player = new Player(this);
             this.input = new Inputhandler(this);
+            this.keys = [];
         }
         update(){
             this.player.update();
