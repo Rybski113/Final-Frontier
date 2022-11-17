@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', ()=> {
+   
 const grid = document.getElementById('grid');
 const resultDisplay = document.getElementById('result');
 const levelDisplay = document.getElementById('level')
@@ -88,6 +90,8 @@ function shoot(e) {
 }
 
 document.addEventListener('keydown', shoot)
+
+})
 
 
 
