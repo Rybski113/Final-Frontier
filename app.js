@@ -2,74 +2,17 @@ window.addEventListener('load', function() {
     //canvas setup
     const canvas = this.document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
-    canvas.width = 500;
-    canvas.height = 500;
+    canvas.width = 600;
+    canvas.height = 600;
 
+    const background = new Image();
+    background.src = 'images/space.png';
 
+   function game() {
+      ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+   }
 
-    class Inputhandler {
-        constructor(game) {
-            this.game = game;
-            window.addEventListener('keydown', e => {
-                if (e.key === 'ArrowLeft') {
-                    this.game.keys.push(e.key);
-            
-                }
-                console.log(this.game.keys)
-            })
-        }
-    }
-
-    class Player {
-        constructor(game) {
-            this.game = game;
-            this.width = 50;
-            this.height = 50;
-            this.x = 225;
-            this.y = 440;
-            this.speedY = 0;
-        }
-        update() {
-            this.y += this.speedY;
-        }
-        draw(context){
-            context.fillRect(this.x, this.y, this.width, this.height);
-        }
-    }
-
-    class Enemy {
-
-    }
-
-    class Projectile {
-
-    }
-
-    class Game {
-        constructor(width, height) {
-            this.width = width;
-            this.height = height;
-            this.player = new Player(this);
-            this.input = new Inputhandler(this);
-            this.keys = [];
-        }
-        update(){
-            this.player.update();
-        }
-        draw(context) {
-            this.player.draw(context);
-        }
-    }
-
-    const game = new Game(canvas.width, canvas.height);
-    function animate() {
-        game.update();
-        game.draw(ctx);
-        requestAnimationFrame(animate);
-    }
-    animate()
-
-    
+    this.setInterval(game, 1000/ 60);
 
     
 })
